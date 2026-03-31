@@ -1,4 +1,4 @@
-package FrameSystem.SLibrary.Div;
+package FrameSystem.SLibrary.Panel;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  * Typography     — font (inherited)
  * Hover          — hoverEnabled, hoverBackground, hoverBorderColor
  */
-public class SDivBeanInfo extends SimpleBeanInfo {
+public class SPanelBeanInfo extends SimpleBeanInfo {
 
     @Override
     public PropertyDescriptor[] getPropertyDescriptors() {
@@ -172,7 +172,7 @@ public class SDivBeanInfo extends SimpleBeanInfo {
      */
     private PropertyDescriptor prop(String propertyName, String category)
             throws IntrospectionException {
-        PropertyDescriptor pd = new PropertyDescriptor(propertyName, SDiv.class);
+        PropertyDescriptor pd = new PropertyDescriptor(propertyName, SPanel.class);
         pd.setValue("category", category);
         return pd;
     }
