@@ -4,7 +4,6 @@ import ConsoleSystem.Console;
 import ConsoleSystem.ConsoleColors;
 import DatabaseSystem.Database;
 import MainSystem.Main;
-import MainSystem.Managers.ManagerLogin;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,9 +30,9 @@ public class AccountsDataHandler {
         Database.executePreparedQuery("SELECT * FROM accounts", (result) -> {
             while (result.next()) {
                 AccountsDataTable data = new AccountsDataTable(result);
-                if (ManagerLogin.isLoggedIn() && ManagerLogin.getAccountLoggedIn().idEquals(data.getId())) {
-                    ManagerLogin.updateAccountLoggedIn(data);
-                }
+//                if (ManagerLogin.isLoggedIn() && ManagerLogin.getAccountLoggedIn().idEquals(data.getId())) {
+//                    ManagerLogin.updateAccountLoggedIn(data);
+//                }
                 if (!data.isError()) array.add(data);
             }
         });

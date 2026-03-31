@@ -1,4 +1,4 @@
-package FrameSystem.SNext.SnComponent;
+package FrameSystem.SLibrary.Div;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  * Typography     — font (inherited)
  * Hover          — hoverEnabled, hoverBackground, hoverBorderColor
  */
-public class SnDivPanelBeanInfo extends SimpleBeanInfo {
+public class SDivBeanInfo extends SimpleBeanInfo {
 
     @Override
     public PropertyDescriptor[] getPropertyDescriptors() {
@@ -167,12 +167,12 @@ public class SnDivPanelBeanInfo extends SimpleBeanInfo {
     }
 
     /**
-     * Builds a PropertyDescriptor for a property of SnDivPanel and assigns it
+     * Builds a PropertyDescriptor for a property of SDiv and assigns it
      * to the given category string (shown as a section header in NetBeans).
      */
     private PropertyDescriptor prop(String propertyName, String category)
             throws IntrospectionException {
-        PropertyDescriptor pd = new PropertyDescriptor(propertyName, SnDivPanel.class);
+        PropertyDescriptor pd = new PropertyDescriptor(propertyName, SDiv.class);
         pd.setValue("category", category);
         return pd;
     }

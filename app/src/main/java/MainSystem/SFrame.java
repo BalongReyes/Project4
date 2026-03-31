@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 
 import DatabaseSystem.Database;
 import EventSystem.Interface.ReconnectExecute;
-import FrameSystem.LayerFolder_Main.Components.LayerMain;
 import java.sql.SQLException;
 import javax.swing.Timer;
 
@@ -28,8 +27,8 @@ public class SFrame extends JFrame {
 // Methods ===================================================================================================
 
     public void initShowDefaultLayer(){
-        LayerMain.showLayer(layerMain_Login);
-        moduleLogin.initShowDefaultLayer();
+//        LayerMain.showLayer(layerMain_Login);
+//        moduleLogin.initShowDefaultLayer();
     }
     
     private void setListeners() {
@@ -38,7 +37,7 @@ public class SFrame extends JFrame {
                 return false;
             }
             if (evt.getID() == KeyEvent.KEY_PRESSED) {
-                LayerMain.keyPressed(evt);
+//                LayerMain.keyPressed(evt);
                 switch (evt.getKeyCode()) {
                     case KeyEvent.VK_F11 -> {
                         toggleFullscreen();
@@ -59,8 +58,8 @@ public class SFrame extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
 
-        moduleHome.menuSwitch_Fullscreen.setActive(fullscreen);
-        moduleHome.menuMinSwitch_Fullscreen.setActive(fullscreen);
+//        moduleHome.menuSwitch_Fullscreen.setActive(fullscreen);
+//        moduleHome.menuMinSwitch_Fullscreen.setActive(fullscreen);
         
         repaint();
     }
@@ -107,12 +106,6 @@ public class SFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        layeredPane_Main = new javax.swing.JLayeredPane();
-        layerMain_Login = new FrameSystem.LayerFolder_Main.Components.LayerMain();
-        moduleLogin = new FrameSystem.LayerFolder_Main.Layers.LayerFolder_Login.Module.ModuleLogin();
-        layerMain_Home = new FrameSystem.LayerFolder_Main.Components.LayerMain();
-        moduleHome = new FrameSystem.LayerFolder_Main.Layers.LayerFolder_Home.Module.ModuleHome();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Avida Prime Taft");
         setBackground(new java.awt.Color(9, 12, 16));
@@ -123,64 +116,15 @@ public class SFrame extends JFrame {
             }
         });
 
-        layeredPane_Main.setLayout(new java.awt.CardLayout());
-
-        layerMain_Login.setBackground(new java.awt.Color(255, 255, 255));
-        layerMain_Login.setName("Main"); // NOI18N
-
-        javax.swing.GroupLayout layerMain_LoginLayout = new javax.swing.GroupLayout(layerMain_Login);
-        layerMain_Login.setLayout(layerMain_LoginLayout);
-        layerMain_LoginLayout.setHorizontalGroup(
-            layerMain_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layerMain_LoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(moduleLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layerMain_LoginLayout.setVerticalGroup(
-            layerMain_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerMain_LoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(moduleLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        layeredPane_Main.add(layerMain_Login, "card1");
-        layerMain_Login.getAccessibleContext().setAccessibleName("");
-
-        layerMain_Home.setBackground(new java.awt.Color(255, 247, 247));
-        layerMain_Home.setName("Home"); // NOI18N
-
-        javax.swing.GroupLayout layerMain_HomeLayout = new javax.swing.GroupLayout(layerMain_Home);
-        layerMain_Home.setLayout(layerMain_HomeLayout);
-        layerMain_HomeLayout.setHorizontalGroup(
-            layerMain_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layerMain_HomeLayout.createSequentialGroup()
-                .addComponent(moduleHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        layerMain_HomeLayout.setVerticalGroup(
-            layerMain_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layerMain_HomeLayout.createSequentialGroup()
-                .addComponent(moduleHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-
-        layeredPane_Main.setLayer(layerMain_Home, javax.swing.JLayeredPane.PALETTE_LAYER);
-        layeredPane_Main.add(layerMain_Home, "card2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(layeredPane_Main)
-                .addGap(0, 0, 0))
+            .addGap(0, 1158, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(layeredPane_Main)
+            .addGap(0, 743, Short.MAX_VALUE)
         );
 
         pack();
@@ -198,11 +142,6 @@ public class SFrame extends JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public FrameSystem.LayerFolder_Main.Components.LayerMain layerMain_Home;
-    public FrameSystem.LayerFolder_Main.Components.LayerMain layerMain_Login;
-    private javax.swing.JLayeredPane layeredPane_Main;
-    public FrameSystem.LayerFolder_Main.Layers.LayerFolder_Home.Module.ModuleHome moduleHome;
-    public FrameSystem.LayerFolder_Main.Layers.LayerFolder_Login.Module.ModuleLogin moduleLogin;
     // End of variables declaration//GEN-END:variables
 
 }

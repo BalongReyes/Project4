@@ -1,4 +1,4 @@
-package FrameSystem.SNext.SnComponent;
+package FrameSystem.SLibrary.Div;
 
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
@@ -31,7 +31,7 @@ import javax.swing.border.EmptyBorder;
 import EventSystem.Interface.InnerListener; // Added InnerListener Import
 
 /**
- * SnDivPanel - A CSS div-like JPanel that supports the full CSS box model
+ * SDiv - A CSS div-like JPanel that supports the full CSS box model
  * via Java Beans getters/setters, ready for the NetBeans Form Editor.
  *
  * Supported CSS concepts:
@@ -47,7 +47,7 @@ import EventSystem.Interface.InnerListener; // Added InnerListener Import
  * Hover      : hoverEnabled, hoverBackground, hoverBorderColor
  */
 @JavaBean(description = "A CSS div-like JPanel with full styling support")
-public class SnDivPanel extends JPanel implements InnerListener { // Implemented InnerListener
+public class SDiv extends JPanel implements InnerListener { // Implemented InnerListener
 
 // ======================================================================================================================
 // Enums
@@ -144,7 +144,7 @@ public class SnDivPanel extends JPanel implements InnerListener { // Implemented
 // Constructor
 // ======================================================================================================================
 
-    public SnDivPanel() {
+    public SDiv() {
         super(null);       // null layout = BLOCK mode
         setOpaque(false);  // we paint ourselves
         syncInsets();
