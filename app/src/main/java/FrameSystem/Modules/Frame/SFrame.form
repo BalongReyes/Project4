@@ -102,7 +102,7 @@
         </Container>
         <Container class="FrameSystem.SLibrary.Layer.SLayer" name="sLayerHome">
           <Properties>
-            <Property name="layerName" type="java.lang.String" value="Main"/>
+            <Property name="layerName" type="java.lang.String" value="Home"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -112,7 +112,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="Main"/>
+              <CardConstraints cardName="Home"/>
             </Constraint>
           </Constraints>
 

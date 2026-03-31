@@ -135,10 +135,10 @@ public class SFrame extends JFrame {
         jLayeredPane1.setLayer(sLayerLogin, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(sLayerLogin, "Login");
 
-        sLayerHome.setLayerName("Main");
+        sLayerHome.setLayerName("Home");
         sLayerHome.setBackground(new java.awt.Color(255, 255, 255));
         jLayeredPane1.setLayer(sLayerHome, javax.swing.JLayeredPane.PALETTE_LAYER);
-        jLayeredPane1.add(sLayerHome, "Main");
+        jLayeredPane1.add(sLayerHome, "Home");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
