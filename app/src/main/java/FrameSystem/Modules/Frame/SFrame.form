@@ -10,6 +10,9 @@
     <Property name="iconImages" type="java.util.List" editor="org.netbeans.modules.form.ComponentChooserEditor">
       <ComponentRef name="null"/>
     </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[500, 500]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -36,7 +39,6 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jLayeredPane1" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,7 +47,6 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jLayeredPane1" max="32767" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,7 +58,10 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1073, 776]"/>
+          <Dimension value="[500, 500]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 500]"/>
         </Property>
       </Properties>
 
@@ -69,6 +73,15 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="display" type="FrameSystem.SLibrary.Panel.SPanel$Display" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="FLEX"/>
+            </Property>
+            <Property name="alignItems" type="FrameSystem.SLibrary.Panel.SPanel$AlignItems" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
+            </Property>
+            <Property name="justifyContent" type="FrameSystem.SLibrary.Panel.SPanel$JustifyContent" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
+            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -79,12 +92,50 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
+          <SubComponents>
+            <Container class="FrameSystem.SLibrary.Panel.SPanel" name="sPanel1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+                <Property name="backgroundOpacity" type="float" value="0.2"/>
+                <Property name="alignItems" type="FrameSystem.SLibrary.Panel.SPanel$AlignItems" editor="org.netbeans.modules.form.editors.EnumEditor">
+                  <Value id="CENTER"/>
+                </Property>
+                <Property name="justifyContent" type="FrameSystem.SLibrary.Panel.SPanel$JustifyContent" editor="org.netbeans.modules.form.editors.EnumEditor">
+                  <Value id="CENTER"/>
+                </Property>
+                <Property name="borderRadius" type="int" value="20"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[120, 120]"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="120" y="140" width="130" height="110"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="true"/>
+              </Layout>
+            </Container>
+          </SubComponents>
         </Container>
         <Container class="FrameSystem.SLibrary.Layer.SLayer" name="sLayerLogin">
           <Properties>
             <Property name="layerName" type="java.lang.String" value="Login"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="display" type="FrameSystem.SLibrary.Panel.SPanel$Display" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="FLEX"/>
+            </Property>
+            <Property name="alignItems" type="FrameSystem.SLibrary.Panel.SPanel$AlignItems" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
+            </Property>
+            <Property name="justifyContent" type="FrameSystem.SLibrary.Panel.SPanel$JustifyContent" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -99,12 +150,37 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Login"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="530" y="310" width="34" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="FrameSystem.SLibrary.Layer.SLayer" name="sLayerHome">
           <Properties>
             <Property name="layerName" type="java.lang.String" value="Home"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="display" type="FrameSystem.SLibrary.Panel.SPanel$Display" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="FLEX"/>
+            </Property>
+            <Property name="alignItems" type="FrameSystem.SLibrary.Panel.SPanel$AlignItems" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
+            </Property>
+            <Property name="justifyContent" type="FrameSystem.SLibrary.Panel.SPanel$JustifyContent" editor="org.netbeans.modules.form.editors.EnumEditor">
+              <Value id="CENTER"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -119,6 +195,22 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Home"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="530" y="310" width="34" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

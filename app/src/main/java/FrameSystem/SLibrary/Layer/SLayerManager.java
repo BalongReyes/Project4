@@ -1,8 +1,12 @@
-package FrameSystem.SLibrary.Layer;
+package FrameSystem.SLibrary.Layer; // Adjust package if you put it elsewhere
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * SLayerManager handles a group of SLayer components.
+ * It ensures only the targeted layer is visible at any given time.
+ */
 public class SLayerManager {
     
     private final Map<String, SLayer> layers = new HashMap<>();
@@ -23,7 +27,7 @@ public class SLayerManager {
     }
 
     /**
-     * Attempts to switch the visible layer, firing custom events in the process.
+     * Attempts to switch the visible layer, explicitly hiding all non-targeted layers.
      */
     public void showLayer(String layerName) {
         if (!layers.containsKey(layerName)) {
@@ -37,21 +41,25 @@ public class SLayerManager {
         String currentLayerName = (currentLayer != null) ? currentLayer.getLayerName() : "";
 
         // 1. Fire BEFORE SHOW event on the target layer
-        // If the listener returns false (e.g., waiting on database), abort the transition.
         if (!targetLayer.fireLayeredPanelBeforeShowListener(true, currentLayerName)) {
-            return; 
+            return; // Abort if the listener blocks it
         }
 
-        // 2. Fire HIDE event on the current layer
+        // 2. Fire HIDE event ONLY on the current conceptual layer
         if (currentLayer != null) {
-            // If the listener returns false (e.g., unsaved form data), abort the transition.
             if (!currentLayer.fireLayeredPanelHideListener(layerName)) {
-                return; 
+                return; // Abort if the listener blocks it (e.g., unsaved changes)
             }
-            currentLayer.setVisible(false);
         }
 
-        // 3. Show the new layer and fire SHOW event
+        // 3. IMPROVEMENT: Explicitly loop through and hide ALL layers that are not the target
+        for (SLayer layer : layers.values()) {
+            if (!layer.getLayerName().equals(layerName)) {
+                layer.setVisible(false);
+            }
+        }
+
+        // 4. Show the new layer and fire SHOW event
         targetLayer.setVisible(true);
         targetLayer.fireLayeredPanelShowListener(true, currentLayerName);
         

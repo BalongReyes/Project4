@@ -22,9 +22,6 @@ public class Main {
 
         frame = new SFrame();
         frame.setVisible(true);
-
-        frame.initShowDefaultLayer();
-        frame.setVisible(true);
     }
 
 }

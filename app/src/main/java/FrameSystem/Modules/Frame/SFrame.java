@@ -16,6 +16,8 @@ import javax.swing.Timer;
 
 public class SFrame extends JFrame {
 
+    private SFrameLayers frameLayers;
+    
     public SFrame() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Icons/main.png")).getImage());
@@ -23,22 +25,19 @@ public class SFrame extends JFrame {
         setLocationRelativeTo(null);
         setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setListeners();
+        
+        frameLayers = new SFrameLayers(sLayerLoading, sLayerLogin, sLayerHome);
+        frameLayers.showLoading();
     }
 
 // Methods ===================================================================================================
 
-    public void initShowDefaultLayer(){
-//        LayerMain.showLayer(layerMain_Login);
-//        moduleLogin.initShowDefaultLayer();
-    }
-    
     private void setListeners() {
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher((KeyEvent evt) -> {
             if (SFrame.getKeyLock()) {
                 return false;
             }
             if (evt.getID() == KeyEvent.KEY_PRESSED) {
-//                LayerMain.keyPressed(evt);
                 switch (evt.getKeyCode()) {
                     case KeyEvent.VK_F11 -> {
                         toggleFullscreen();
@@ -109,13 +108,17 @@ public class SFrame extends JFrame {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         sLayerLoading = new FrameSystem.SLibrary.Layer.SLayer();
+        sPanel1 = new FrameSystem.SLibrary.Panel.SPanel();
         sLayerLogin = new FrameSystem.SLibrary.Layer.SLayer();
+        jLabel1 = new javax.swing.JLabel();
         sLayerHome = new FrameSystem.SLibrary.Layer.SLayer();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Avida Prime Taft");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
+        setPreferredSize(new java.awt.Dimension(500, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -123,20 +126,54 @@ public class SFrame extends JFrame {
         });
 
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jLayeredPane1.setMinimumSize(new java.awt.Dimension(1073, 776));
+        jLayeredPane1.setMinimumSize(new java.awt.Dimension(500, 500));
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(500, 500));
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
         sLayerLoading.setLayerName("Loading");
         sLayerLoading.setBackground(new java.awt.Color(255, 255, 255));
+        sLayerLoading.setDisplay(FrameSystem.SLibrary.Panel.SPanel.Display.FLEX);
+        sLayerLoading.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
+        sLayerLoading.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
+
+        sPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        sPanel1.setBackgroundOpacity(0.2F);
+        sPanel1.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
+        sPanel1.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
+        sPanel1.setBorderRadius(20);
+        sPanel1.setPreferredSize(new java.awt.Dimension(120, 120));
+        sLayerLoading.add(sPanel1);
+        sPanel1.setBounds(120, 140, 130, 110);
+
         jLayeredPane1.add(sLayerLoading, "Loading");
 
         sLayerLogin.setLayerName("Login");
         sLayerLogin.setBackground(new java.awt.Color(255, 255, 255));
+        sLayerLogin.setDisplay(FrameSystem.SLibrary.Panel.SPanel.Display.FLEX);
+        sLayerLogin.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
+        sLayerLogin.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Login");
+        sLayerLogin.add(jLabel1);
+        jLabel1.setBounds(530, 310, 34, 15);
+
         jLayeredPane1.setLayer(sLayerLogin, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(sLayerLogin, "Login");
 
         sLayerHome.setLayerName("Home");
         sLayerHome.setBackground(new java.awt.Color(255, 255, 255));
+        sLayerHome.setDisplay(FrameSystem.SLibrary.Panel.SPanel.Display.FLEX);
+        sLayerHome.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
+        sLayerHome.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Home");
+        sLayerHome.add(jLabel3);
+        jLabel3.setBounds(530, 310, 34, 15);
+
         jLayeredPane1.setLayer(sLayerHome, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(sLayerHome, "Home");
 
@@ -146,15 +183,13 @@ public class SFrame extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,10 +207,13 @@ public class SFrame extends JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     private FrameSystem.SLibrary.Layer.SLayer sLayerHome;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLoading;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLogin;
+    private FrameSystem.SLibrary.Panel.SPanel sPanel1;
     // End of variables declaration//GEN-END:variables
 
 }
