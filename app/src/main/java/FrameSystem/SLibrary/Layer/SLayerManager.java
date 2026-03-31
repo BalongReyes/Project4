@@ -3,36 +3,19 @@ package FrameSystem.SLibrary.Layer;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * SLayerManager handles a group of SLayer components.
- * It ensures only one layer in the group is visible at a time.
- */
 public class SLayerManager {
     
-    // Stores layers by their unique names
     private final Map<String, SLayer> layers = new HashMap<>();
-    
-    // Tracks the currently visible layer
     private SLayer currentLayer = null;
 
-    public SLayerManager() {
-        // Empty constructor
-    }
+    public SLayerManager() {}
 
-    /**
-     * Registers a single layer with the manager.
-     * @param layer The SLayer to add.
-     */
     public void addLayer(SLayer layer) {
         if (layer != null && layer.getLayerName() != null) {
             layers.put(layer.getLayerName(), layer);
         }
     }
 
-    /**
-     * A convenience method to register multiple layers at once.
-     * @param layersToAdd A comma-separated list of SLayer components.
-     */
     public void addLayers(SLayer... layersToAdd) {
         for (SLayer l : layersToAdd) {
             addLayer(l);
@@ -40,37 +23,41 @@ public class SLayerManager {
     }
 
     /**
-     * Hides the current layer and shows the target layer.
-     * @param layerName The name of the layer you want to show.
+     * Attempts to switch the visible layer, firing custom events in the process.
      */
     public void showLayer(String layerName) {
-        // 1. Check if the layer exists
         if (!layers.containsKey(layerName)) {
             System.err.println("SLayerManager: Layer '" + layerName + "' not found.");
             return;
         }
 
         SLayer targetLayer = layers.get(layerName);
+        if (targetLayer == currentLayer) return;
 
-        // 2. If it's already the active layer, do nothing
-        if (targetLayer == currentLayer) {
-            return;
+        String currentLayerName = (currentLayer != null) ? currentLayer.getLayerName() : "";
+
+        // 1. Fire BEFORE SHOW event on the target layer
+        // If the listener returns false (e.g., waiting on database), abort the transition.
+        if (!targetLayer.fireLayeredPanelBeforeShowListener(true, currentLayerName)) {
+            return; 
         }
 
-        // 3. Hide the currently active layer (if there is one)
+        // 2. Fire HIDE event on the current layer
         if (currentLayer != null) {
+            // If the listener returns false (e.g., unsaved form data), abort the transition.
+            if (!currentLayer.fireLayeredPanelHideListener(layerName)) {
+                return; 
+            }
             currentLayer.setVisible(false);
         }
 
-        // 4. Show the new target layer
+        // 3. Show the new layer and fire SHOW event
         targetLayer.setVisible(true);
+        targetLayer.fireLayeredPanelShowListener(true, currentLayerName);
+        
         currentLayer = targetLayer;
     }
     
-    /**
-     * Retrieves the currently active layer.
-     * @return The active SLayer.
-     */
     public SLayer getCurrentLayer() {
         return currentLayer;
     }

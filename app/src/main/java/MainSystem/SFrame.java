@@ -106,10 +106,13 @@ public class SFrame extends JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        sLayerLoading = new FrameSystem.SLibrary.Layer.SLayer();
+        sLayerLogin = new FrameSystem.SLibrary.Layer.SLayer();
+        sLayerMain = new FrameSystem.SLibrary.Layer.SLayer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Avida Prime Taft");
-        setBackground(new java.awt.Color(9, 12, 16));
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -117,16 +120,23 @@ public class SFrame extends JFrame {
             }
         });
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1073, Short.MAX_VALUE)
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
-        );
+        jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setMinimumSize(new java.awt.Dimension(1073, 776));
+        jLayeredPane1.setLayout(new java.awt.CardLayout());
+
+        sLayerLoading.setLayerName("Loading");
+        sLayerLoading.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.add(sLayerLoading, "Loading");
+
+        sLayerLogin.setLayerName("Login");
+        sLayerLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setLayer(sLayerLogin, javax.swing.JLayeredPane.PALETTE_LAYER);
+        jLayeredPane1.add(sLayerLogin, "Login");
+
+        sLayerMain.setLayerName("Main");
+        sLayerMain.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setLayer(sLayerMain, javax.swing.JLayeredPane.PALETTE_LAYER);
+        jLayeredPane1.add(sLayerMain, "Main");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,14 +144,14 @@ public class SFrame extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -161,6 +171,9 @@ public class SFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane jLayeredPane1;
+    private FrameSystem.SLibrary.Layer.SLayer sLayerLoading;
+    private FrameSystem.SLibrary.Layer.SLayer sLayerLogin;
+    private FrameSystem.SLibrary.Layer.SLayer sLayerMain;
     // End of variables declaration//GEN-END:variables
 
 }
