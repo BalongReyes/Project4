@@ -1,7 +1,6 @@
 package DatabaseSystem.AccountsData;
 
 import ConsoleSystem.Console;
-import ConsoleSystem.ConsoleColors;
 import DatabaseSystem.Database;
 import MainSystem.Main;
 import java.math.BigInteger;
@@ -55,7 +54,7 @@ public class AccountsDataHandler {
         }
         // -------------------------------
         
-        if (Main.debugDataHandlerRefresh) Console.out("AccountsDataHandler refreshed", ConsoleColors.YELLOW);
+        if (Main.debugDataHandlerRefresh) Console.out("AccountsDataHandler refreshed");
     }
     
     public static AccountsDataTable[] getAllData(boolean refresh) throws SQLException {

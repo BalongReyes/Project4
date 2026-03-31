@@ -1,7 +1,6 @@
 package MainSystem;
 
 import ConsoleSystem.Console;
-import ConsoleSystem.ConsoleColors;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 
@@ -78,7 +77,7 @@ public class SFrame extends JFrame {
             try{
                 Database.openConnection();
                 if(Database.getConnection() != null && !Database.getConnection().isClosed()){
-                    if(Main.debugDataHandlerRefresh) Console.line().out("RECONNECTION OF " + caller, ConsoleColors.GREEN);
+                    if(Main.debugDataHandlerRefresh) Console.line().out("RECONNECTION OF " + caller);
                     currentReconnectExecute.reconnect();
                     ((Timer)evt.getSource()).stop();
                 }
@@ -106,6 +105,8 @@ public class SFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Avida Prime Taft");
         setBackground(new java.awt.Color(9, 12, 16));
@@ -116,15 +117,32 @@ public class SFrame extends JFrame {
             }
         });
 
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1073, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1158, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLayeredPane1)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 743, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLayeredPane1)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -142,6 +160,7 @@ public class SFrame extends JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLayeredPane jLayeredPane1;
     // End of variables declaration//GEN-END:variables
 
 }

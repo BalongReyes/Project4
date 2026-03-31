@@ -1,7 +1,6 @@
 package DatabaseSystem.UnitsData;
 
 import ConsoleSystem.Console;
-import ConsoleSystem.ConsoleColors;
 import DatabaseSystem.DataTable.DataTableOrder;
 import DatabaseSystem.Database;
 import MainSystem.Main;
@@ -23,7 +22,7 @@ public class UnitsDataHandler {
             }
         });
         
-        if (Main.debugDataHandlerRefresh) Console.out("UnitsDataHandler refreshed", ConsoleColors.YELLOW);
+        if (Main.debugDataHandlerRefresh) Console.out("UnitsDataHandler refreshed");
     }
     
     public static UnitsDataTable[] getAllData(boolean refresh) throws SQLException {

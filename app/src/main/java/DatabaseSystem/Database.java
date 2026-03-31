@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ConsoleSystem.Console;
-import ConsoleSystem.ConsoleColors;
 
 public class Database {
 
@@ -20,7 +19,7 @@ public class Database {
     private static Connection connection;
 
     public static void openConnection() {
-        Console.line().out("CONNECTING TO DATABASE '" + databaseName + "'", ConsoleColors.GREEN);
+        Console.line().out("CONNECTING TO DATABASE '" + databaseName + "'");
         try {
             Console.out("Connecting: " + "jdbc:mysql://" + ip + ":" + port + "/" + databaseName);
             connection = DriverManager.getConnection("jdbc:mysql://" + ip + ":" + port + "/" + databaseName, username,
@@ -34,7 +33,7 @@ public class Database {
     public static void closeConnection() {
         if (connection == null)
             return;
-        Console.line().out("CLOSING CONNECTION", ConsoleColors.GREEN);
+        Console.line().out("CLOSING CONNECTION");
         try {
             connection.close();
             Console.out("Connection closed");

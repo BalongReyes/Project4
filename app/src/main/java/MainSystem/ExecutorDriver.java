@@ -2,7 +2,6 @@
 package MainSystem;
 
 import ConsoleSystem.Console;
-import ConsoleSystem.ConsoleColors;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,7 +13,7 @@ public class ExecutorDriver{
     private static final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
     
     public static void closeExecutor(){
-        Console.line().out("CLOSING EXECUTOR", ConsoleColors.GREEN);
+        Console.line().out("CLOSING EXECUTOR");
         executorService.shutdown();
         try{
             if(!executorService.awaitTermination(800, TimeUnit.MILLISECONDS)){
