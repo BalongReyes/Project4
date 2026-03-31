@@ -1,5 +1,6 @@
 package MainSystem;
 
+import FrameSystem.Modules.Frame.SFrame;
 import com.formdev.flatlaf.FlatLightLaf;
 
 import DatabaseSystem.Database; // Import FlatLaf

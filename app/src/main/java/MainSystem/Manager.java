@@ -1,5 +1,7 @@
 package MainSystem;
 
+import FrameSystem.Modules.Frame.SFrame;
+
 public class Manager {
 
     protected static SFrame frame;

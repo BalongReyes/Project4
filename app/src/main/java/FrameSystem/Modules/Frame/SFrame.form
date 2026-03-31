@@ -100,7 +100,7 @@
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
         </Container>
-        <Container class="FrameSystem.SLibrary.Layer.SLayer" name="sLayerMain">
+        <Container class="FrameSystem.SLibrary.Layer.SLayer" name="sLayerHome">
           <Properties>
             <Property name="layerName" type="java.lang.String" value="Main"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

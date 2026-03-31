@@ -1,4 +1,4 @@
-package MainSystem;
+package FrameSystem.Modules.Frame;
 
 import ConsoleSystem.Console;
 import java.awt.KeyboardFocusManager;
@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 import DatabaseSystem.Database;
 import EventSystem.Interface.ReconnectExecute;
+import MainSystem.ExecutorDriver;
+import MainSystem.Main;
 import java.sql.SQLException;
 import javax.swing.Timer;
 
@@ -108,7 +110,7 @@ public class SFrame extends JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         sLayerLoading = new FrameSystem.SLibrary.Layer.SLayer();
         sLayerLogin = new FrameSystem.SLibrary.Layer.SLayer();
-        sLayerMain = new FrameSystem.SLibrary.Layer.SLayer();
+        sLayerHome = new FrameSystem.SLibrary.Layer.SLayer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Avida Prime Taft");
@@ -133,10 +135,10 @@ public class SFrame extends JFrame {
         jLayeredPane1.setLayer(sLayerLogin, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(sLayerLogin, "Login");
 
-        sLayerMain.setLayerName("Main");
-        sLayerMain.setBackground(new java.awt.Color(255, 255, 255));
-        jLayeredPane1.setLayer(sLayerMain, javax.swing.JLayeredPane.PALETTE_LAYER);
-        jLayeredPane1.add(sLayerMain, "Main");
+        sLayerHome.setLayerName("Main");
+        sLayerHome.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setLayer(sLayerHome, javax.swing.JLayeredPane.PALETTE_LAYER);
+        jLayeredPane1.add(sLayerHome, "Main");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,9 +173,9 @@ public class SFrame extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane jLayeredPane1;
+    private FrameSystem.SLibrary.Layer.SLayer sLayerHome;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLoading;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLogin;
-    private FrameSystem.SLibrary.Layer.SLayer sLayerMain;
     // End of variables declaration//GEN-END:variables
 
 }
