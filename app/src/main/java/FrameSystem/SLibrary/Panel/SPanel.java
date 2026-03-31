@@ -55,7 +55,7 @@ public class SPanel extends JPanel implements InnerListener { // Implemented Inn
 
     public enum Display        { BLOCK, FLEX }
     public enum FlexDirection  { ROW, COLUMN, ROW_REVERSE, COLUMN_REVERSE }
-    public enum JustifyContent { FLEX_START, FLEX_END, CENTER, SPACE_BETWEEN, SPACE_AROUND, SPACE_EVENLY }
+    public enum JustifyContent { FLEX_START, FLEX_END, CENTER, SPACE_BETWEEN, SPACE_AROUND, SPACE_EVENLY, STRETCH}
     public enum AlignItems     { FLEX_START, FLEX_END, CENTER, STRETCH }
     public enum FlexWrap       { NOWRAP, WRAP }
     public enum Overflow       { VISIBLE, HIDDEN }

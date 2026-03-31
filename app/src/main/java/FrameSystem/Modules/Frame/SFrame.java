@@ -27,7 +27,7 @@ public class SFrame extends JFrame {
         setListeners();
         
         frameLayers = new SFrameLayers(sLayerLoading, sLayerLogin, sLayerHome);
-        frameLayers.showLoading();
+        frameLayers.showLogin();
     }
 
 // Methods ===================================================================================================
@@ -109,8 +109,9 @@ public class SFrame extends JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         sLayerLoading = new FrameSystem.SLibrary.Layer.SLayer();
         sPanel1 = new FrameSystem.SLibrary.Panel.SPanel();
+        sAnimatedLoading1 = new FrameSystem.SLibrary.Animated.SAnimatedLoading();
         sLayerLogin = new FrameSystem.SLibrary.Layer.SLayer();
-        jLabel1 = new javax.swing.JLabel();
+        moduleLogin2 = new FrameSystem.Modules.Login.ModuleLogin();
         sLayerHome = new FrameSystem.SLibrary.Layer.SLayer();
         jLabel3 = new javax.swing.JLabel();
 
@@ -118,7 +119,6 @@ public class SFrame extends JFrame {
         setTitle("Avida Prime Taft");
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
-        setPreferredSize(new java.awt.Dimension(500, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -127,7 +127,6 @@ public class SFrame extends JFrame {
 
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(500, 500));
-        jLayeredPane1.setPreferredSize(new java.awt.Dimension(500, 500));
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
         sLayerLoading.setLayerName("Loading");
@@ -138,10 +137,18 @@ public class SFrame extends JFrame {
 
         sPanel1.setBackground(new java.awt.Color(204, 204, 204));
         sPanel1.setBackgroundOpacity(0.2F);
+        sPanel1.setDisplay(FrameSystem.SLibrary.Panel.SPanel.Display.FLEX);
         sPanel1.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
         sPanel1.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
         sPanel1.setBorderRadius(20);
         sPanel1.setPreferredSize(new java.awt.Dimension(120, 120));
+
+        sAnimatedLoading1.setLineColor(new java.awt.Color(255, 101, 101));
+        sAnimatedLoading1.setBackgroundOpacity(0.0F);
+        sAnimatedLoading1.setMinimumSize(new java.awt.Dimension(50, 50));
+        sPanel1.add(sAnimatedLoading1);
+        sAnimatedLoading1.setBounds(10, 10, 50, 50);
+
         sLayerLoading.add(sPanel1);
         sPanel1.setBounds(120, 140, 130, 110);
 
@@ -152,12 +159,8 @@ public class SFrame extends JFrame {
         sLayerLogin.setDisplay(FrameSystem.SLibrary.Panel.SPanel.Display.FLEX);
         sLayerLogin.setAlignItems(FrameSystem.SLibrary.Panel.SPanel.AlignItems.CENTER);
         sLayerLogin.setJustifyContent(FrameSystem.SLibrary.Panel.SPanel.JustifyContent.CENTER);
-
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Login");
-        sLayerLogin.add(jLabel1);
-        jLabel1.setBounds(530, 310, 34, 15);
+        sLayerLogin.add(moduleLogin2);
+        moduleLogin2.setBounds(80, 80, 875, 579);
 
         jLayeredPane1.setLayer(sLayerLogin, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(sLayerLogin, "Login");
@@ -183,13 +186,13 @@ public class SFrame extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1017, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,9 +210,10 @@ public class SFrame extends JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private FrameSystem.Modules.Login.ModuleLogin moduleLogin2;
+    private FrameSystem.SLibrary.Animated.SAnimatedLoading sAnimatedLoading1;
     private FrameSystem.SLibrary.Layer.SLayer sLayerHome;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLoading;
     private FrameSystem.SLibrary.Layer.SLayer sLayerLogin;
